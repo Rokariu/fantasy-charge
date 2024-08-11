@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crvhv3okpja0g"]
+
+[node name="LvL1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 548.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 50
+text = "First Level 1/0"
