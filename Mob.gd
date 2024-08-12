@@ -11,7 +11,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	var Hero = $"../Node2D/Hero"
+	var Hero = $"../Hero/Hero"
 	var direction = (Hero.position - self.position).normalized()
 	if alive == true:
 		if chase == true:
@@ -39,9 +39,17 @@ func _on_agrozone_body_exited(body):
 
 func _on_death_body_entered(body):
 	if body.name == "Hero":
+		body.velocity.y -= 300
 		death()
-		
-func death ():
+				
+func _on_death_2_body_entered(body):	
+	if body.name == "Hero":
+		if alive == true:
+			body.health -= 20
+		death()	
+			
+			
+func death ():	
 	alive = false
 	anim.play("Death")
 	await anim.animation_finished

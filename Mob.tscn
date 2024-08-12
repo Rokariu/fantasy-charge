@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyl6v86enipnh"]
+[gd_scene load_steps=22 format=3 uid="uid://dyl6v86enipnh"]
 
 [ext_resource type="Script" path="res://Mob.gd" id="1_1l5v4"]
 [ext_resource type="Texture2D" uid="uid://dj7u7w01axuni" path="res://Monsters_Creatures_Fantasy/Skeleton/Death.png" id="1_776qh"]
@@ -68,9 +68,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s1pue")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -115,7 +115,10 @@ height = 50.0
 radius = 112.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6lhx"]
-size = Vector2(20, 47)
+size = Vector2(20, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvsxv"]
+size = Vector2(31.75, 7.25)
 
 [node name="Mob" type="CharacterBody2D"]
 script = ExtResource("1_1l5v4")
@@ -140,9 +143,16 @@ shape = SubResource("CircleShape2D_470qk")
 [node name="death" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
-position = Vector2(-1, -14.5)
+position = Vector2(-1, -36)
 shape = SubResource("RectangleShape2D_i6lhx")
+
+[node name="death2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death2"]
+position = Vector2(-1.875, -15)
+shape = SubResource("RectangleShape2D_xvsxv")
 
 [connection signal="body_entered" from="Agrozone" to="." method="_on_agrozone_body_entered"]
 [connection signal="body_exited" from="Agrozone" to="." method="_on_agrozone_body_exited"]
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
+[connection signal="body_entered" from="death2" to="." method="_on_death_2_body_entered"]
