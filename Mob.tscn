@@ -108,7 +108,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwnhf"]
-radius = 11.0
+radius = 14.0
 height = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_470qk"]
@@ -130,7 +130,7 @@ sprite_frames = SubResource("SpriteFrames_m40ct")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -15)
+position = Vector2(-1, -8)
 shape = SubResource("CapsuleShape2D_dwnhf")
 
 [node name="Agrozone" type="Area2D" parent="."]
@@ -150,6 +150,10 @@ shape = SubResource("RectangleShape2D_i6lhx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death2"]
 position = Vector2(-1.875, -15)
+shape = SubResource("RectangleShape2D_xvsxv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death2"]
+position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_xvsxv")
 
 [connection signal="body_entered" from="Agrozone" to="." method="_on_agrozone_body_entered"]
